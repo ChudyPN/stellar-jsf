@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+   <application>
+       <message-bundle>
+           lab.stellar.messages
+       </message-bundle>
+      <locale-config>
+         <default-locale>pl</default-locale>
+         <supported-locale>en</supported-locale>
+      </locale-config>
+      <resource-bundle>
+         <base-name>lab.stellar.messages</base-name>
+         <var>msg</var>
+      </resource-bundle>
+   </application>
+
+   <!-- <managed-bean>
+        <managed-bean-name>helloBean</managed-bean-name>
+        <managed-bean-class>lab.stellar.faces.HelloBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>-->
+   
+   <!--<managed-bean>
+      <managed-bean-name>stellarService</managed-bean-name>
+      <managed-bean-class>lab.stellar.service.impl.StellarServiceImpl</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope> 
+      <managed-property>
+         <property-name>planetDAO</property-name>
+         <value>#{planetDao}</value>
+      </managed-property>
+      <managed-property>
+         <property-name>systemDAO</property-name>
+         <value>#{systemDao}</value>
+      </managed-property>
+   </managed-bean>
+
+   <managed-bean>
+      <managed-bean-name>planetDao</managed-bean-name>
+      <managed-bean-class>lab.stellar.dao.impl.inmemory.InMemoryPlanetDAO</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+   </managed-bean>
+
+   <managed-bean>
+      <managed-bean-name>systemDao</managed-bean-name>
+      <managed-bean-class>lab.stellar.dao.impl.inmemory.InMemorySystemDAO</managed-bean-class>
+      <managed-bean-scope>application</managed-bean-scope>
+   </managed-bean>-->
+
+    <navigation-rule>
+        <from-view-id>/jsf/systems.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{planetarySystemForm.add}</from-action>
+            <from-outcome>adding</from-outcome>
+            <to-view-id>/jsf/addSystems.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>listing</from-outcome>
+            <to-view-id>/jsf/systems.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>
